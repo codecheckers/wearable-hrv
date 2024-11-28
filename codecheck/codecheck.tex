@@ -1,0 +1,316 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+]{article}
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{mathpazo}
+\usepackage{booktabs}
+\usepackage{rotating}
+\usepackage{makecell}
+\usepackage{hyperref}
+%% \usepackage[a4paper,margin=2cm]{geometry}
+
+
+\newcommand{\orcidlogo}{\textcolor{orcidlogocol}{\aiOrcid}}
+\usepackage[font=Large,labelfont=bf,textfont=bf]{caption}
+\DeclareCaptionLabelFormat{addC}{#1 C#2}
+
+
+%% This solution for adding the ORCID logo was taken from:
+%% https://tex.stackexchange.com/questions/445563/ieeetran-how-to-include-orcid-in-tex-pdf-with-pdflatex/445583
+%% and adapted simply by scaling the icon a little smaller than | to +
+\usepackage{scalerel}
+\usepackage{tikz}
+\usetikzlibrary{svg.path}
+
+\definecolor{orcidlogocol}{HTML}{A6CE39}
+\tikzset{
+  orcidlogo/.pic={
+    \fill[orcidlogocol] svg{M256,128c0,70.7-57.3,128-128,128C57.3,256,0,198.7,0,128C0,57.3,57.3,0,128,0C198.7,0,256,57.3,256,128z};
+    \fill[white] svg{M86.3,186.2H70.9V79.1h15.4v48.4V186.2z}
+                 svg{M108.9,79.1h41.6c39.6,0,57,28.3,57,53.6c0,27.5-21.5,53.6-56.8,53.6h-41.8V79.1z M124.3,172.4h24.5c34.9,0,42.9-26.5,42.9-39.7c0-21.5-13.7-39.7-43.7-39.7h-23.7V172.4z}
+                 svg{M88.7,56.8c0,5.5-4.5,10.1-10.1,10.1c-5.6,0-10.1-4.6-10.1-10.1c0-5.6,4.5-10.1,10.1-10.1C84.2,46.7,88.7,51.3,88.7,56.8z};
+  }
+}
+
+\newcommand\orcidicon[1]{\href{https://orcid.org/#1}{\mbox{\scalerel*{
+\begin{tikzpicture}[yscale=-1,transform shape]
+\pic{orcidlogo};
+\end{tikzpicture}
+}{+}}}}
+
+%% Set hyperlinks in colour to the "CODECHECK colour".
+\hypersetup{colorlinks=true, urlcolor = [rgb]{0,.5,0.2}}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={CODECHECK certificate 2020-XYZ},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{CODECHECK certificate 2020-XYZ}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{\url{https://doi.org/10.5281/zenodo.FIXME}}
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+\maketitle
+
+\centerline{\includegraphics[width=4cm]{/Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/library/codecheck/extdata/codecheck_logo.pdf}}\vspace*{2cm}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{lp{10cm}}
+  \hline
+Item & Value \\ 
+  \hline
+Title & Quality in Question: Assessing the accuracy of four heart rate wearables and the implications for psychophysiological research.
+ \\ 
+  Authors & Mohammadamin Sinichi \orcidicon{0009-0008-2491-1542} , Martin Gevonden, Lydia Krabbendam \\ 
+  Reference & \url{https://doi.org/10.31219/osf.io/wkzsn} \\ 
+  Codechecker & Yasel Quintero \orcidicon{0009-0005-9240-7370} , Tornike Skhirtladze, Joslyn Sun \orcidicon{0009-0002-2379-0060} , Gabriella Low Chew Tung, Roel Janssen \orcidicon{0000-0003-4324-5350}  \\ 
+  Date of check & 2020-11-28 14:00:00 \\ 
+  Summary & Jupyter notebooks, Python package and data were provided by the author. We edited the paths to the .CSV data files in the notebooks to reproduce Figure 5 in the manuscript.
+ \\ 
+  Repository & \url{https://github.com/yiquintero/wearable-hrv} \\ 
+   \hline
+\end{tabular}
+\caption{CODECHECK summary} 
+\end{table}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{p{6cm}p{6cm}p{2cm}}
+  \hline
+Output & Comment & Size (b) \\ 
+  \hline
+\href{https://github.com/yiquintero/wearable-hrv/blob/master/codecheck/outputs/Figure5.png}{\path{figures-codecheck/Figure5.png}} & manuscript Figure 5 & 337355 \\ 
+   \hline
+\end{tabular}
+\caption{Summary of output files generated} 
+\end{table}
+
+\section{Summary}\label{summary}
+
+This code was (not) straightforward to codecheck. {[}\ldots{} ADD MORE
+INTERESTING FINDINGS HERE..{]}
+
+\clearpage
+
+\section{CODECHECKER notes}\label{codechecker-notes}
+
+This took \ldots{} minutes to complete on \{a large workstation, my
+laptop\}.
+
+\subsection{Recommendations}\label{recommendations}
+
+I suggest to the authors to consider the following suggestions for their
+next publication or workflow:
+
+\begin{itemize}
+\tightlist
+\item
+  \ldots{}
+\end{itemize}
+
+(document here if any of the suggestions were taken up by the authors in
+the meantime - do not remove any, keep track of contributions via
+feedback)
+
+\clearpage
+
+\section{Manifest files}\label{manifest-files}
+
+\subsection{Figure5.png}\label{figure5.png}
+
+\textbf{Comment:} manuscript Figure 5
+
+\pandocbounded{\includegraphics[keepaspectratio]{/Users/yquinterolares/repos/codecheck/wearable-hrv/codecheck/outputs/Figure5.png}}
+\clearpage 
+
+\clearpage
+
+\subsection{Acknowledgements}\label{acknowledgements}
+
+I would like to thank Dr Bhatt and his team for promptly answering any
+queries I had with this reproduction. CODECHECK is financially supported
+by the Mozilla foundation.
+
+\section{Citing this document}\label{citing-this-document}
+
+Yasel Quintero, Tornike Skhirtladze, Joslyn Sun, Gabriella Low Chew
+Tung, Roel Janssen (2020). CODECHECK Certificate 2020-XYZ. Zenodo.
+\url{https://doi.org/10.5281/zenodo.FIXME}
+
+\section{About CODECHECK}\label{about-codecheck}
+
+This certificate confirms that the codechecker could independently
+reproduce the results of a computational analysis given the data and
+code from a third party. A CODECHECK does not check whether the original
+computation analysis is correct. However, as all materials required for
+the reproduction are freely available by following the links in this
+document, the reader can then study for themselves the code and data.
+
+\section{About this document}\label{about-this-document}
+
+This document was created using \href{https://rmarkdown.rstudio.com/}{R
+Markdown} using the
+\href{https://github.com/codecheckers/codecheck}{\texttt{codecheck}} R
+package. \texttt{make\ codecheck.pdf} will regenerate the report file.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sessionInfo}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## R version 4.4.1 (2024-06-14)
+## Platform: aarch64-apple-darwin20
+## Running under: macOS 15.1.1
+## 
+## Matrix products: default
+## BLAS:   /Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/lib/libRblas.0.dylib 
+## LAPACK: /Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/lib/libRlapack.dylib;  LAPACK version 3.12.0
+## 
+## locale:
+## [1] C/UTF-8/C/C/C/C
+## 
+## time zone: Europe/Amsterdam
+## tzcode source: internal
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets 
+## [6] methods   base     
+## 
+## other attached packages:
+##  [1] readr_2.1.5      tibble_3.2.1     xtable_1.8-4    
+##  [4] yaml_2.3.10      rprojroot_2.0.4  knitr_1.49      
+##  [7] codecheck_0.11.4 parsedate_1.3.1  R.cache_0.16.0  
+## [10] gh_1.4.1        
+## 
+## loaded via a namespace (and not attached):
+##  [1] xfun_0.49         rdflib_0.2.9      tzdb_0.4.0       
+##  [4] vctrs_0.6.5       tools_4.4.1       generics_0.1.3   
+##  [7] curl_6.0.1        parallel_4.4.1    fansi_1.0.6      
+## [10] pkgconfig_2.0.3   pdftools_3.4.1    R.oo_1.27.0      
+## [13] redland_1.0.17-18 assertthat_0.2.1  lifecycle_1.0.4  
+## [16] compiler_4.4.1    atom4R_0.3-3      stringr_1.5.1    
+## [19] keyring_1.3.2     htmltools_0.5.8.1 pillar_1.9.0     
+## [22] crayon_1.5.3      whisker_0.4.1     tidyr_1.3.1      
+## [25] R.utils_2.12.3    cachem_1.1.0      zen4R_0.10       
+## [28] tidyselect_1.2.1  zip_2.3.1         digest_0.6.37    
+## [31] stringi_1.8.4     dplyr_1.1.4       purrr_1.0.2      
+## [34] fastmap_1.2.0     cli_3.6.3         magrittr_2.0.3   
+## [37] XML_3.99-0.17     crul_1.5.0        utf8_1.2.4       
+## [40] osfr_0.2.9        withr_3.0.2       bit64_4.5.2      
+## [43] roxygen2_7.3.2    rmarkdown_2.29    httr_1.4.7       
+## [46] bit_4.5.0         qpdf_1.3.4        askpass_1.2.1    
+## [49] R.methodsS3_1.8.2 hms_1.1.3         memoise_2.0.1    
+## [52] evaluate_1.0.1    rlang_1.1.4       Rcpp_1.0.13-1    
+## [55] glue_1.8.0        httpcode_0.3.0    xml2_1.3.6       
+## [58] fauxpas_0.5.2     rorcid_0.7.0      vroom_1.6.5      
+## [61] jsonlite_1.8.9    plyr_1.8.9        R6_2.5.1         
+## [64] fs_1.6.5
+\end{verbatim}
+
+\end{document}
