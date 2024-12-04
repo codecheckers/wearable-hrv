@@ -116,7 +116,7 @@ codechecker:
 
 summary: >
   The codecheckers were able to reproduce most of the figures in the manuscript and its supplementary documentation.
-repository: https://github.com/yiquintero/wearable-hrv
+repository: https://github.com/codecheckers/wearable-hrv
 check_time: "2024-12-04 14:00:00"
 certificate: 2024-019
-report: https://doi.org/10.5281/zenodo.FIXME
+report: https://doi.org/10.5281/zenodo.14279041
