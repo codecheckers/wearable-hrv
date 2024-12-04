@@ -56,25 +56,33 @@ latex_summary_of_manifest(metadata, manifest_df, root)
 
 # Summary
 
-The reproduction of Figure 5 in the manuscript was achieved with help from the authors. This codecheck was done as part of the "CodeCheck goes NL" workshop in Erasmus University, Rotterdam, The Netherlands.
+This codecheck was done as part of the "CodeCheck goes NL" workshop in Erasmus University Rotterdam, The Netherlands. The codechek process was carried out in two stages. During the workshop, the reproduction of Figure 5 in the manuscript was achieved with help from the authors. Following the workshop, the authors provided the codecheckers with a Jupyter notebook capable of generating most of the figures presented in the manuscript, along with those in the supplementary materials.
 
 \clearpage
 
 # CODECHECKER notes
 
-The authors helped the codecheckers fix minor mistakes in the code involving paths to the data needed to generate the plot in Figure 5. The authors provided all the necessary code and data to perform the codecheck. These were obtained from https://osf.io/y2q3r/. The following changes were made to the code, Empatica.ipynb:
+The authors have made available the necessary code and data to reproduce the figures and tables in the manuscript and supplementary documentation. These resources can be accessed at https://osf.io/y2q3r/.
 
-* Modified the `path` variable in the notebook's second cell; its value was set to `<local-path>/osfstorage-archive/Raw Data/Empatica Avro Files`
-* Modified the `events_path` variable the fourth cell; its value was set to `<local-path>/osfstorage-archive/Raw Data/" + pp + "_events.csv`
+## Reproduction of Figure 5 
 
-All the necessary libraries to run the notebooks, except for Jupyter itself, were obtained by installing the package as documented in the README file of the repository https://github.com/Aminsinichi/wearable-hrv.
+Figure 5 was reproduced by running the Jupyter notebook ```Empatica.ipynb```(https://osf.io/7h48c). The authors assisted the codecheckers in fixing minor issues in the code, mainly related to incorrect paths to the data files needed to generate the plot. The following changes were made to the code:
+
+* Modified the ```path``` variable in the notebook's second cell; its value was set to ```<local-path>/osfstorage-archive/Raw Data/Empatica Avro Files```
+* Modified the ```events_path``` variable the fourth cell; its value was set to ```<local-path>/osfstorage-archive/Raw Data/" + pp + "_events.csv```
+
+All the necessary libraries to run the notebooks, except for Jupyter itself, were obtained by installing the ```wearablehrv``` package as documented in the README file of the repository https://github.com/Aminsinichi/wearable-hrv.
+
+## Reproduction of all other figures and tables
+
+Following the workshop, the authors uploaded to the article's OSF project the Jupyter notebook ```Quality in Question - Reproduce Results.ipynb``` (https://osf.io/x6t5n) which was used by the codecheckers to reproduce all the other figures and tables included in this report.
 
 ## Recommendations
 
 The codechekers suggest to the authors to consider the following suggestions for their next publication or workflow:
 
-* Providing readers with jupyter notebooks that generate all the figures in the article. These notebooks can be submitted along with the article.
-* Using the function `os.path.join` to handle the paths in Python code 
+* Providing readers with jupyter notebooks that generate all the figures in the article. These notebooks can be submitted along with the article, as supplementary documentation.
+* Using the function ```os.path.join``` to handle the paths in Python code 
 
 \clearpage
 
@@ -114,7 +122,7 @@ for(i in c(1:nrow(manifest_df))) {
 
 ## Acknowledgements
 
-
+We would like to acknowledge NWO for funding the CHECK-NL project, and enabling the workshop at Rotterdam.
 
 # Citing this document
 
